@@ -1,24 +1,33 @@
-import './App.css'
+// import './App.css'
+import JobContainer from './components/JobContainerBox/JobContainer'
+import JobFilter from './components/JobFilter'
 
 function App() {
-  
+
 
   return (
-   <>
-       {/* <!-- top section starts --> */}
-    <div className="main-container">
+    <>
+      {/* <!-- top section starts --> */}
+      {/* <div className="main-container">
         <input type="text" placeholder="Roles" className="input-box-job" />
         <input type="text" placeholder="Number Of Employees" className="input-box-job" />
         <input type="text" placeholder="Experience" className="input-box-job" />
         <input type="text" placeholder="Remote" className="input-box-job" />
         <input type="text" placeholder="Minimum Base Pay salary" className="input-box-job" />
         <input type="text" placeholder="Search Company Name" className="input-box-job" />
-    </div>
-    {/* <!-- top section ends here --> */}
-    <div className="job-container">
+    </div> */}
 
-        {/* <!-- job 1 container start here --> */}
-        <div className="job-container-padding">
+      {/* top section */}
+      <JobFilter />
+      {/* top section ends */}
+
+      <JobContainer />
+
+      {/* <!-- top section ends here --> */}
+      {/* <div className="job-container"> */}
+
+      {/* <!-- job 1 container start here --> */}
+      {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -55,12 +64,12 @@ function App() {
             </div>
 
             <button  className="apply-btn">⚡ Easy Apply</button>
-        </div>
-        {/* <!-- job 1 container end here --> */}
+        </div> */}
+      {/* <!-- job 1 container end here --> */}
 
-        
-        {/* <!-- job 2 container start here --> */}
-        <div className="job-container-padding">
+
+      {/* <!-- job 2 container start here --> */}
+      {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -97,12 +106,12 @@ function App() {
             </div>
 
             <button  className="apply-btn">⚡ Easy Apply</button>
-        </div>
-        {/* <!-- job 2 container end here --> */}
+        </div> */}
+      {/* <!-- job 2 container end here --> */}
 
-            
-        {/* <!-- job 3 container start here --> */}
-        <div className="job-container-padding">
+
+      {/* <!-- job 3 container start here --> */}
+      {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -139,12 +148,12 @@ function App() {
             </div>
 
             <button  className="apply-btn">⚡ Easy Apply</button>
-        </div>
-        {/* <!-- job 3 container end here --> */}
+        </div> */}
+      {/* <!-- job 3 container end here --> */}
 
-            
-        {/* <!-- job 4 container start here --> */}
-        <div className="job-container-padding">
+
+      {/* <!-- job 4 container start here --> */}
+      {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -181,11 +190,11 @@ function App() {
             </div>
 
             <button  className="apply-btn">⚡ Easy Apply</button>
-        </div>
-        {/* <!-- job 4 container end here --> */}
+        </div> */}
+      {/* <!-- job 4 container end here --> */}
 
-    </div>
-   </>
+      {/* </div> */}
+    </>
   )
 }
 
