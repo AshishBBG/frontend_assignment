@@ -34,6 +34,10 @@
 
 /* company info start here */
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 .company-info{
     /* border: 1px solid; */
     display: flex;
@@ -46,12 +50,16 @@
 
 .left-side-logo img {
     width: 100%;
+
 }
 
 .company-info-post {
     line-height: 1.5rem;
     margin-left: .4rem;
     font-family: monospace;
+    position: relative;
+    /* bottom: 2px; */
+    top: -7px;
 }
 
 .company-info-post p {

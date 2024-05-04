@@ -1,7 +1,10 @@
 import React from "react";
 import './JobSingleStyle.css'
 
-function JobSingle() {
+function JobSingle({ jdUnit, companyName, jdLink, jobDetailsFromCompany,
+    jobRole, location, logoUrl, minExp, minJdSalary, maxJdSalary }) {
+    // function JobSingle(props) {
+
     return (
         <>
             <div className="job-container-padding">
@@ -10,35 +13,52 @@ function JobSingle() {
                 </div>
                 <div className="company-info">
                     <div className="left-side-logo">
-                        <img src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1713846233282_m137p.jpg"
-                            alt="" />
+                        {/* <img src={props.logoUrl} alt="" /> */}
+                        <img src={logoUrl} alt="" />
+                        {/* {console.log(props.logoUrl)} */}
                     </div>
                     <div className="company-info-post">
-                        <p className="company-name">Firefly</p>
-                        <p>Frontend Engineer</p>
-                        <p className="company-location">India</p>
+                        <p className="company-name capitalize">{companyName}</p>
+                        <p className="capitalize">{jobRole}</p>
+                        <p className="company-location capitalize"> {location} </p>
                     </div>
                 </div>
                 <div className="company-salary">
-                    <p>Estimated Salary: ₹30 - 50 LPA</p>
+                    <p>Estimated Salary: 
+                       <span> {
+                            minJdSalary !== null && maxJdSalary !== null
+                                ?'$'+`${minJdSalary} - ${maxJdSalary}`
+                                : minJdSalary !== null
+                                    ? `${minJdSalary}`
+                                    : maxJdSalary !== null
+                                        ? '$'+`${maxJdSalary}`
+                                        : 'Salary not provided'
+                        }
+                        <span> LPA</span>
+                        </span>
+                    </p>
                     <p>✅</p>
                 </div>
 
                 <div className="company-para">
                     <p className="about-company">About Company:</p>
                     <p className="about-us">About us</p>
-                    <p className="about-company-para fade">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est saepe
-                        deleniti excepturi placeat dignissimos nam illum, nesciunt facilis autem quibusdam, voluptatibus
-                        minus distinctio qui quidem tempora. Ipsam repudiandae totam porro.</p>
+                    <p className="about-company-para fade">
+                         {jobDetailsFromCompany.split(' ').slice(0, 50).join(' ')} </p>
                 </div>
                 <div className="job-link">
-                    <a href="#">View Job</a>
+                    <a href={jdLink}>View Job</a>
                 </div>
 
-                <div className="job-experience">
+               <div className="job-experience">
                     <p className="min-exp">Minimum Experience</p>
-                    <p>4 years</p>
+                   {
+                   minExp!==null ?
+                   <p>{minExp} years</p>
+                   :<p> Not Required </p>
+                   }
                 </div>
+                
 
                 <button className="apply-btn">⚡ Easy Apply</button>
             </div>
