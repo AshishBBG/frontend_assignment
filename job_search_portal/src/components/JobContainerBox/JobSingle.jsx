@@ -1,7 +1,7 @@
 import React from "react";
 import './JobSingleStyle.css'
 
-function JobSingle({ jdUnit, companyName, jdLink, jobDetailsFromCompany,
+function JobSingle({ jdUid, companyName, jdLink, jobDetailsFromCompany,
     jobRole, location, logoUrl, minExp, minJdSalary, maxJdSalary }) {
     // function JobSingle(props) {
 
