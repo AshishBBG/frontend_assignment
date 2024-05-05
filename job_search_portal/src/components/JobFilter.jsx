@@ -7,32 +7,18 @@ import JobContainer from './JobContainerBox/JobContainer';
 import JobInputBox from './JobFilteration/JobInputBox';
 
 function JobFilter({ jobData, loading, handleScroll }) {
-    // const [jobRole, setJobRole] = useState('');
-    const [filteredJobs, setFilteredJobs] = useState([]);
 
+    const [filteredJobs, setFilteredJobs] = useState([]);
     const [userInputSearch, setUserInputSearch] = useState('');
 
-    //     const search = () => {
-    //         useEffect(() => {
-    //         // Debounced filtering function
-    //         const debouncedFilter = debounce((input) => {
-    //             const filtered = jobData.filter(job => job.jobRole.toLowerCase().includes(input.toLowerCase()));
-    //             setFilteredJobs(filtered);
-    //         }, 300); // Debounce time in milliseconds
-
-    //         // Call debounced function when jobRole changes
-    //         debouncedFilter(jobRole);
-    //     })
-    // }
-
-    useEffect(() => {
-        // Add scroll event listener when component mounts
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            // Remove scroll event listener when component unmounts
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    // useEffect(() => {
+    //     // Add scroll event listener when component mounts
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => {
+    //         // Remove scroll event listener when component unmounts
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
 
 
 
@@ -40,6 +26,7 @@ function JobFilter({ jobData, loading, handleScroll }) {
         <div className="main-container">
 
 
+            
             <JobInputBox placeholder='Roles' setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
                 toSearch='jobRole'
@@ -54,13 +41,14 @@ function JobFilter({ jobData, loading, handleScroll }) {
 
             <JobInputBox placeholder='Minimum Base Pay salary' setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
-                toSearch='minJdSalary'
+                toSearch='minJdSalary' 
             />
 
             <JobInputBox placeholder='Company Name'  setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
                 toSearch='companyName'
             />
+            
 
 
 
@@ -104,9 +92,12 @@ function JobFilter({ jobData, loading, handleScroll }) {
                     userInputSearch.length ?
                         filteredJobs.map(job => (
                             <div key={uuidv4()}>
-                                <JobSingle {...job} />
+                                <JobSingle {...job} handleScroll={handleScroll}/>
+                                
+
                             </div>
-                        )) : <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} />
+                        )) 
+                        : <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} />
                 }
             </div>
 

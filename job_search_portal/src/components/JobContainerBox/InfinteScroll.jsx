@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import JobContainer from './JobContainer';
-                
+import React, { useEffect, useState } from "react";
 
-function JobFetchData() {
+function InfiniteScroll({handleScroll, setLoading, setJobData, loading}) {
 
-    const [jobData, setJobData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -21,15 +18,17 @@ function JobFetchData() {
         };
     }, []);
 
-    const handleScroll = () => {
-        if (
-            window.innerHeight + document.documentElement.scrollTop ===
-            document.documentElement.offsetHeight
-        ) {
-            // When user scrolls to the bottom of the page, load more data
-            fetchData();
-        }
-    };
+
+    // const handleScroll = () => {
+    //     if (
+    //         window.innerHeight + document.documentElement.scrollTop ===
+    //         document.documentElement.offsetHeight
+    //     ) {
+    //         // When user scrolls to the bottom of the page, load more data
+    //         fetchData();
+    //     }
+    // };
+
 
     const fetchData = async () => {
         if (!loading) {
@@ -55,11 +54,11 @@ function JobFetchData() {
         }
     };
 
-    return(
+    return (
         <>
-        <JobContainer jobData = {jobData} loading = {loading} />
+        
         </>
     )
 }
 
-export default JobFetchData
+export default InfiniteScroll

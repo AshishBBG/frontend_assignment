@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import JobFilter from './components/JobFilter'
+import { v4 as uuidv4 } from 'uuid';
+import JobFilter from './components/JobFilter';
+import JobContainer from './components/JobContainerBox/JobContainer';
+import JobSingle from './components/JobContainerBox/JobSingle';
 
 function App() {
     const [jobData, setJobData] = useState([]);
@@ -9,16 +12,6 @@ function App() {
     useEffect(() => {
         fetchData(); // Fetch initial data when component mounts
     }, []);
-
-    const handleScroll = () => {
-        if (
-            window.innerHeight + document.documentElement.scrollTop ===
-            document.documentElement.offsetHeight
-        ) {
-            // When user scrolls to the bottom of the page, load more data
-            fetchData();
-        }
-    };
 
     const fetchData = async () => {
         if (!loading) {
@@ -44,39 +37,23 @@ function App() {
         }
     };
 
-
+    const handleScroll = () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop ===
+            document.documentElement.offsetHeight
+        ) {
+            // When user scrolls to the bottom of the page, load more data
+            fetchData();
+        }
+    };
 
     return (
         <>
-            {/* <!-- top section starts --> */}
-            {/* <div className="main-container">
-        <input type="text" placeholder="Roles" className="input-box-job" />
-        <input type="text" placeholder="Number Of Employees" className="input-box-job" />
-        <input type="text" placeholder="Experience" className="input-box-job" />
-        <input type="text" placeholder="Remote" className="input-box-job" />
-        <input type="text" placeholder="Minimum Base Pay salary" className="input-box-job" />
-        <input type="text" placeholder="Search Company Name" className="input-box-job" />
-    </div> */}
-
-            {/* <JobFilter jobData={jobData} setFilteredRole={setFilteredRole} /> */}
-
-            {/* <div>
-                
-                {jobData.map(job => (
-                    <div key={uuidv4()}>
-                        {job.jobRole === filteredRole && <JobSingle {...jobData} />}
-                    </div>
-                ))}
-            </div> */}
-
-            {/* top section */}
-            <JobFilter jobData = {jobData} loading={loading} handleScroll={handleScroll}/>
-            {/* top section ends */}
-
+            <JobFilter jobData={jobData} loading={loading} handleScroll={handleScroll} />
+            
             {/* <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} /> */}
-
         </>
-    )
+    );
 }
 
-export default App
+export default App;
