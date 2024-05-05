@@ -64,6 +64,7 @@ function JobContainer({jobData, loading, handleScroll }) {
                 {jobData.map(job => (
                     <JobSingle key={uuidv4()} {...job} />
                 ))}
+                
                 {/* {loading && <Loading />} */}
             </div>
             <div className='center-loading'>

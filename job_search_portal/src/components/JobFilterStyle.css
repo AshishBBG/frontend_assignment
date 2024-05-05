@@ -6,3 +6,10 @@
     margin-right: 10px;
 }
 
+
+.apply-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+}

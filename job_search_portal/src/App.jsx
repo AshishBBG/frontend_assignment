@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import JobContainer from './components/JobContainerBox/JobContainer'
 import JobFilter from './components/JobFilter'
+import JobSingle from './components/JobContainerBox/JobSingle';
 
 function App() {
     const [jobData, setJobData] = useState([]);
@@ -59,12 +60,10 @@ function App() {
 
 
 
-    const [filteredRole, setFilteredRole] = useState('');
-    
-  return (
-    <>
-      {/* <!-- top section starts --> */}
-      {/* <div className="main-container">
+    return (
+        <>
+            {/* <!-- top section starts --> */}
+            {/* <div className="main-container">
         <input type="text" placeholder="Roles" className="input-box-job" />
         <input type="text" placeholder="Number Of Employees" className="input-box-job" />
         <input type="text" placeholder="Experience" className="input-box-job" />
@@ -73,17 +72,28 @@ function App() {
         <input type="text" placeholder="Search Company Name" className="input-box-job" />
     </div> */}
 
-      {/* top section */}
-      <JobFilter jobData = {jobData} />
-      {/* top section ends */}
+            {/* <JobFilter jobData={jobData} setFilteredRole={setFilteredRole} /> */}
 
-      <JobContainer jobData = {jobData} loading = {loading} handleScroll = {handleScroll} />
+            {/* <div>
+                
+                {jobData.map(job => (
+                    <div key={uuidv4()}>
+                        {job.jobRole === filteredRole && <JobSingle {...jobData} />}
+                    </div>
+                ))}
+            </div> */}
 
-      {/* <!-- top section ends here --> */}
-      {/* <div className="job-container"> */}
+            {/* top section */}
+            <JobFilter jobData = {jobData} loading={loading} handleScroll={handleScroll}/>
+            {/* top section ends */}
 
-      {/* <!-- job 1 container start here --> */}
-      {/* <div className="job-container-padding">
+            {/* <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} /> */}
+
+            {/* <!-- top section ends here --> */}
+            {/* <div className="job-container"> */}
+
+            {/* <!-- job 1 container start here --> */}
+            {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -121,11 +131,11 @@ function App() {
 
             <button  className="apply-btn">⚡ Easy Apply</button>
         </div> */}
-      {/* <!-- job 1 container end here --> */}
+            {/* <!-- job 1 container end here --> */}
 
 
-      {/* <!-- job 2 container start here --> */}
-      {/* <div className="job-container-padding">
+            {/* <!-- job 2 container start here --> */}
+            {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -163,11 +173,11 @@ function App() {
 
             <button  className="apply-btn">⚡ Easy Apply</button>
         </div> */}
-      {/* <!-- job 2 container end here --> */}
+            {/* <!-- job 2 container end here --> */}
 
 
-      {/* <!-- job 3 container start here --> */}
-      {/* <div className="job-container-padding">
+            {/* <!-- job 3 container start here --> */}
+            {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -205,11 +215,11 @@ function App() {
 
             <button  className="apply-btn">⚡ Easy Apply</button>
         </div> */}
-      {/* <!-- job 3 container end here --> */}
+            {/* <!-- job 3 container end here --> */}
 
 
-      {/* <!-- job 4 container start here --> */}
-      {/* <div className="job-container-padding">
+            {/* <!-- job 4 container start here --> */}
+            {/* <div className="job-container-padding">
             <div className="posted-date-container">
                 <span className="posted-date">⏳ Posted 3 days ago</span>
             </div>
@@ -247,11 +257,11 @@ function App() {
 
             <button  className="apply-btn">⚡ Easy Apply</button>
         </div> */}
-      {/* <!-- job 4 container end here --> */}
+            {/* <!-- job 4 container end here --> */}
 
-      {/* </div> */}
-    </>
-  )
+            {/* </div> */}
+        </>
+    )
 }
 
 export default App
