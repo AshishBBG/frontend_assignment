@@ -60,7 +60,7 @@ function JobSingle({ jdUid, companyName, jdLink, jobDetailsFromCompany,
                 </div>
                 
 
-                <button className="apply-btn">⚡ Easy Apply</button>
+                <a href={jdLink}><button className="apply-btn">⚡ Easy Apply</button></a>
             </div>
         </>
     )

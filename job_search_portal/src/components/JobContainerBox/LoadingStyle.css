@@ -1,4 +1,4 @@
-.loader {
+/* .loader {
     width: 48px;
     height: 48px;
     border: 5px solid #000;
@@ -6,5 +6,36 @@
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+    animation: rotation .2s linear infinite;
+    } */
+
+    /* spinner start  */
+.spinner-border {
+    width: 2rem; /* Adjust the size as needed */
+    height: 2rem; /* Adjust the size as needed */
+    border-width: 10px; /* Adjust the thickness of the spinner */
+    border: 3px solid #25c1c6; /* Color of the spinner */
+    border-top-color: #fffcfc; /* Color of the top border */
+    border-radius: 50%; /* Shape of the spinner */
+    animation: spinner-border 0.75s linear infinite; /* Animation */
+  }
+  
+  @keyframes spinner-border {
+    to {
+      transform: rotate(360deg); /* Rotate the spinner */
     }
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+/* spinner end  */
