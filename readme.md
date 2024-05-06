@@ -28,8 +28,20 @@
 - Applied Filter for Experience and  Job Role 👇👇👇👇
 ![Demo ss2](./job_search_portal/src/assets/ss3.png)
 
+
+- Applied Filter for Minimum Salary 👇👇👇👇
+![Demo ss2](./job_search_portal/src/assets/ss4.png)
+
+
+- Applied Filter for Comapny Name 👇👇👇👇
+![Demo ss2](./job_search_portal/src/assets/ss5.png)
+
+
 **Tech Stack Used**
-- React
+- ReactJs
+- Redux
+- CSS
+
 - **uuid** libray is used in api many data are duplicate so i have **uuid** library for unique key generation
 - **debounce** library is used for capturing quick change in input and apply search result
 - Loading state is also there for user experience
