@@ -4,7 +4,7 @@ import "./JobContainerStyle.css"
 import JobSingle from "./JobSingle";
 import Loading from "./Loading"
 
-function JobContainer({jobData, loading, handleScroll }) {
+function JobContainer({jobData, loading }) {
    
     // console.log(jobData)
     // const [jobData, setJobData] = useState([]);
@@ -15,14 +15,14 @@ function JobContainer({jobData, loading, handleScroll }) {
     //     fetchData(); // Fetch initial data when component mounts
     // }, []);
 
-    useEffect(() => {
-        // Add scroll event listener when component mounts
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            // Remove scroll event listener when component unmounts
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    // useEffect(() => {
+    //     // Add scroll event listener when component mounts
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => {
+    //         // Remove scroll event listener when component unmounts
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
 
     // const handleScroll = () => {
     //     if (
@@ -76,3 +76,5 @@ function JobContainer({jobData, loading, handleScroll }) {
 }
 
 export default JobContainer;
+
+

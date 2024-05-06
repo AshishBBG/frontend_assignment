@@ -6,7 +6,7 @@ import './JobFilterStyle.css'
 import JobContainer from './JobContainerBox/JobContainer';
 import JobInputBox from './JobFilteration/JobInputBox';
 
-function JobFilter({ jobData, loading, handleScroll }) {
+function JobFilter({ originalData, jobData, loading, handleScroll }) {
 
     const [filteredJobs, setFilteredJobs] = useState([]);
     const [userInputSearch, setUserInputSearch] = useState('');
@@ -19,6 +19,44 @@ function JobFilter({ jobData, loading, handleScroll }) {
     //         window.removeEventListener('scroll', handleScroll);
     //     };
     // }, []);
+    // useEffect(() => {
+    //     setFilteredJobs(originalData);
+    // }, [originalData]); // Update filteredJobs whenever jobData changes
+    
+    // useEffect(() => {
+    //     // Whenever original data changes or userInputSearch changes, apply filtering
+    //     filterJobs();
+    // }, [userInputSearch, originalData]);
+
+    // const filterJobs = () => {
+    //     // Perform filtering based on userInputSearch and update filteredJobs state
+    //     const filtered = originalData.filter(job => {
+    //         // Implement your filtering logic here
+    //         // For example, filtering based on job role
+    //         return job.jobRole.toLowerCase().includes(userInputSearch.toLowerCase());
+    //     });
+    //     // setFilteredJobs(filtered);
+    //     setFilteredJobs(prevFilteredJobs => [...prevFilteredJobs, ...filtered]);
+    // };
+    // const filterJobs = () => {
+    //     // Perform filtering based on userInputSearch and update filteredJobs state
+    //     if (userInputSearch.trim() === '') {
+    //         // Clear filteredJobs if userInputSearch is empty
+    //         setFilteredJobs([]);
+    //     } else {
+    //         // Apply filtering if userInputSearch is not empty
+    //         const filtered = originalData.filter(job => {
+    //             // Implement your filtering logic here
+    //             // For example, filtering based on job role
+    //             return job.jobRole.toLowerCase().includes(userInputSearch.toLowerCase());
+    //         });
+    //         // Update filteredJobs state
+    //         // setFilteredJobs(filtered);
+    //     setFilteredJobs(prevFilteredJobs => [...prevFilteredJobs, ...filtered]);
+
+    //     }
+    // };
+    
 
 
 
@@ -27,26 +65,26 @@ function JobFilter({ jobData, loading, handleScroll }) {
 
 
             
-            <JobInputBox placeholder='Roles' setUserInputSearch={setUserInputSearch}
+            <JobInputBox placeholder='Roles' userInputSearch={userInputSearch} setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
-                toSearch='jobRole'
+                toSearch='jobRole' originalData={originalData}
             />
             {/* {console.log(userInputSearch)} */}
             {console.log(jobData)}
 
-            <JobInputBox placeholder='Experience' setUserInputSearch={setUserInputSearch}
+            <JobInputBox placeholder='Experience' userInputSearch={userInputSearch} setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
-                toSearch='minExp'
+                toSearch='minExp' originalData={originalData} 
             />
 
-            <JobInputBox placeholder='Minimum Base Pay salary' setUserInputSearch={setUserInputSearch}
+            <JobInputBox placeholder='Minimum Base Pay salary' userInputSearch={userInputSearch} setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
-                toSearch='minJdSalary' 
+                toSearch='minJdSalary' originalData={originalData}
             />
 
-            <JobInputBox placeholder='Company Name'  setUserInputSearch={setUserInputSearch}
+            <JobInputBox placeholder='Company Name' userInputSearch={userInputSearch}  setUserInputSearch={setUserInputSearch}
                 jobData={jobData} setFilteredJobs={setFilteredJobs}
-                toSearch='companyName'
+                toSearch='companyName' originalData={originalData}
             />
             
 
@@ -89,17 +127,21 @@ function JobFilter({ jobData, loading, handleScroll }) {
                 {console.log(filteredJobs)} */}
 
                 {
-                    userInputSearch.length ?
-                        filteredJobs.map(job => (
-                            <div key={uuidv4()}>
-                                <JobSingle {...job} handleScroll={handleScroll}/>
-                                
-
-                            </div>
-                        )) 
-                        : <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} />
+                    // userInputSearch.length ?
+                    //     filteredJobs.map(job => (
+                    //         <div key={uuidv4()}>
+                    //             <JobSingle {...job} handleScroll={handleScroll}/>                             
+                    //         </div>
+                    //     )) 
+                    //     : <JobContainer jobData={jobData} loading={loading} handleScroll={handleScroll} />
                 }
+                <JobContainer jobData={filteredJobs.length > 0 ?
+                     filteredJobs : jobData} loading={loading}
+                      handleScroll={handleScroll} />
+                      
+        
             </div>
+
 
 
 
@@ -116,3 +158,4 @@ function JobFilter({ jobData, loading, handleScroll }) {
 }
 
 export default JobFilter;
+
