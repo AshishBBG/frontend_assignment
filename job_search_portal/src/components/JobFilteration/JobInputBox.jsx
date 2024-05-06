@@ -25,8 +25,45 @@ function JobInputBox({ placeholder, userInputSearch, setUserInputSearch, jobData
             setFilteredJobs(prevFilteredJobs => [...prevFilteredJobs, ...filtered]);
         };
 
+
+    // const filterJobs = () => {
+    //     // Perform filtering based on all applied filters and update filteredJobs state
+    //     const filtered = jobData.filter(job => {
+    //         // Initialize a flag to indicate if the job passes all filters
+    //         let passAllFilters = true;
+    
+    //         // Iterate over all applied filters
+    //         for (const filterKey in userInputSearch) {
+    //             const filterValue = userInputSearch[filterKey];
+    //             const jobValue = job[filterKey];
+    
+    //             // Check if the job value matches the filter value
+    //             if (filterValue && jobValue) {
+    //                 if (typeof jobValue === 'string') {
+    //                     // Convert both values to lowercase for case-insensitive comparison
+    //                     if (!jobValue.toLowerCase().includes(filterValue.toLowerCase())) {
+    //                         passAllFilters = false;
+    //                         break; // Break the loop if the job does not match the filter
+    //                     }
+    //                 } else if (typeof jobValue === 'number') {
+    //                     if (jobValue !== parseInt(filterValue)) {
+    //                         passAllFilters = false;
+    //                         break; // Break the loop if the job does not match the filter
+    //                     }
+    //                 }
+    //             }
+    //         }
+    
+    //         return passAllFilters;
+    //     });
+    
+    //     // Update the filtered jobs state
+    //     setFilteredJobs(filtered);
+    // };
+    
+
     const search = debounce((input) => {
-        const filtered = originalData.filter(job => {
+        const filtered = jobData.filter(job => {
             const value = job[toSearch];
             // console.log(job.jobRole?.toLowerCase().includes(userInputSearch.jobRole.toLowerCase()));
             if (typeof value === "string") {
