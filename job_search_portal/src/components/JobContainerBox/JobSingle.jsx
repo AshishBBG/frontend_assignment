@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './JobSingleStyle.css'
 
 function JobSingle({ jdUid, companyName, jdLink, jobDetailsFromCompany,
     jobRole, location, logoUrl, minExp, minJdSalary, maxJdSalary, handleScroll }) {
-    // function JobSingle(props) {
-
-    // useEffect(() => {
-    //     // Add scroll event listener when component mounts
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => {
-    //         // Remove scroll event listener when component unmounts
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
 
     return (
         <>

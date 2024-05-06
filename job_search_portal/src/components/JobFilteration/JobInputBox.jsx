@@ -10,8 +10,9 @@ function JobInputBox({ placeholder, userInputSearch, setUserInputSearch, jobData
 
     const filterJobs = () => {
             // Perform filtering based on userInputSearch and update filteredJobs state
-            const filtered = originalData.filter(job => {
+            const filtered = jobData.filter(job => {
                 const value = job[toSearch];
+            
             if (typeof value === "string") {
                 return value.toLowerCase().includes(userInputSearch.toLowerCase());
             } else if (typeof value === "number") {
@@ -27,6 +28,7 @@ function JobInputBox({ placeholder, userInputSearch, setUserInputSearch, jobData
     const search = debounce((input) => {
         const filtered = originalData.filter(job => {
             const value = job[toSearch];
+            // console.log(job.jobRole?.toLowerCase().includes(userInputSearch.jobRole.toLowerCase()));
             if (typeof value === "string") {
                 return value.toLowerCase().includes(input.toLowerCase());
             } else if (typeof value === "number") {
@@ -46,7 +48,7 @@ function JobInputBox({ placeholder, userInputSearch, setUserInputSearch, jobData
         setInputValue(inputValue);
         setUserInputSearch(inputValue);
 
-        if (inputValue.trim() === '') {
+        if (inputValue === '') {
             setFilteredJobs([]);
         } else {
             search(inputValue);

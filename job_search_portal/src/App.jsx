@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import JobFilter from './components/JobFilter';
-import JobContainer from './components/JobContainerBox/JobContainer';
-import JobSingle from './components/JobContainerBox/JobSingle';
+// import JobContainer from './components/JobContainerBox/JobContainer';
+// import JobSingle from './components/JobContainerBox/JobSingle';
 
 function App() {
     const [jobData, setJobData] = useState([]);
@@ -11,16 +11,16 @@ function App() {
     const [originalData, setOriginalData] = useState([]);
 
     useEffect(() => {
-        // Add scroll event listener when component mounts
+      
         window.addEventListener('scroll', handleScroll);
         return () => {
-            // Remove scroll event listener when component unmounts
+            
             window.removeEventListener('scroll', handleScroll);
         };
     }, [jobData]);
 
     useEffect(() => {
-        fetchData(); // Fetch initial data when component mounts
+        fetchData(); 
     }, []);
 
     const fetchData = async () => {
@@ -34,7 +34,7 @@ function App() {
                     },
                     body: JSON.stringify({
                         limit: 10,
-                        offset: page * 10 // Adjust offset based on page number
+                        offset: page * 10 
                     })
                 });
                 const data = await response.json();
@@ -54,10 +54,9 @@ function App() {
         if (
             window.innerHeight + document.documentElement.scrollTop ===
             document.documentElement.offsetHeight 
-            // !loading && // Check if loading is not in progress
-            // jobData.length % 10 === 0
+        
         ) {
-            // When user scrolls to the bottom of the page, load more data
+            
             fetchData();
         }
     };
