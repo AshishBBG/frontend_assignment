@@ -21,10 +21,11 @@
 ![Demo Ss1](./job_search_portal/src/assets/ss1.png)
 
 
-- Here I Appliy filter for Experience
+- Applied Filter for Experience 👇👇👇👇
 ![Demo ss2](./job_search_portal/src/assets/ss2.png)
 
-- Here I Appliy filter for Experience and  Job Role
+
+- Applied Filter for Experience and  Job Role 👇👇👇👇
 ![Demo ss2](./job_search_portal/src/assets/ss3.png)
 
 **Tech Stack Used**
