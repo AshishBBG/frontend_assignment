@@ -39,8 +39,8 @@
 
 **Tech Stack Used**
 - ReactJs
-- Redux
 - CSS
+- Component based Approach
 
 - **uuid** libray is used in api many data are duplicate so i have **uuid** library for unique key generation
 - **debounce** library is used for capturing quick change in input and apply search result
